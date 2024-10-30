@@ -1,6 +1,6 @@
 package com.gingercookee.goty.domain.topic.entity;
 
-import com.gingercookee.goty.domain.update.entity.Update;
+import com.gingercookee.goty.domain.upgrade.entity.Upgrade;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +26,6 @@ public class Topic {
     private String topic;
 
     @ManyToOne
-    @JoinColumn(name = "update_id")
-    private Update update;
+    @JoinColumn(name = "upgrade_id")
+    private Upgrade upgrade;
 }

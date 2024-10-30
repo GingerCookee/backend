@@ -7,12 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "app")
+@Table(name = "App")
 public class App {
 
     @Id
@@ -21,7 +22,7 @@ public class App {
     private Long appId;
 
     @Column(name = "name", nullable = false, unique = true)
-    private String memberId;
+    private String name;
 
     @Column(name = "banner_url", nullable = true, unique = true)
     private String bannerUrl;
@@ -37,6 +38,9 @@ public class App {
 
     @Column(name = "rating_avg", nullable = false, unique = false)
     private Double ratingAvg;
+
+    @Column(name = "recent_update")
+    private Date recentUpdate;
 
     @OneToMany(mappedBy = "app")
     private List<CategoryApp> categoryAppList = new ArrayList<>();

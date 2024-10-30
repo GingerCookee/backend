@@ -1,6 +1,5 @@
-package com.gingercookee.goty.domain.update.entity;
+package com.gingercookee.goty.domain.upgrade.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 import com.gingercookee.goty.domain.app.entity.App;
 import com.gingercookee.goty.domain.sentiment.entity.Sentiment;
 import com.gingercookee.goty.domain.topic.entity.Topic;
@@ -15,16 +14,16 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "update")
-public class Update {
+@Table(name = "upgrade")
+public class Upgrade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "update_id")
-    private Long updateId;
+    @Column(name = "upgrade_id")
+    private Long upgradeId;
 
-    @Column(name = "update_date")
-    private LocalDateTime updateDate;
+    @Column(name = "upgrade_date")
+    private LocalDateTime upgradeDate;
 
     @Column(name = "content")
     private String content;
@@ -33,10 +32,10 @@ public class Update {
     @JoinColumn(name = "app_id")
     private App app;
 
-    @OneToMany(mappedBy = "update")
+    @OneToMany(mappedBy = "upgrade")
     private List<Topic> topicList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "udpate")
+    @OneToMany(mappedBy = "upgrade")
     private List<Sentiment> sentimentList = new ArrayList<>();
 
 }
