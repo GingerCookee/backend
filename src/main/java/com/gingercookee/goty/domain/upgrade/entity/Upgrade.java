@@ -32,11 +32,13 @@ public class Upgrade {
     @JoinColumn(name = "app_id")
     private App app;
 
-    @OneToMany(mappedBy = "upgrade")
-    private List<Topic> topicList = new ArrayList<>();
+//    한달 단위로 끊으면서 upgrade - topic, sentiment 관계를 지워버렸단다
 
-    @OneToMany(mappedBy = "upgrade")
-    private List<Sentiment> sentimentList = new ArrayList<>();
+//    @OneToMany(mappedBy = "upgrade")
+//    private List<Topic> topicList = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "upgrade")
+//    private List<Sentiment> sentimentList = new ArrayList<>();
 
 }
 

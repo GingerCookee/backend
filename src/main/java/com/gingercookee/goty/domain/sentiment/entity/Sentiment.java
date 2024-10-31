@@ -1,5 +1,6 @@
 package com.gingercookee.goty.domain.sentiment.entity;
 
+import com.gingercookee.goty.domain.review.entity.Review;
 import com.gingercookee.goty.domain.upgrade.entity.Upgrade;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,7 +26,15 @@ public class Sentiment {
     @Column(name = "sentiment")
     private Integer sentiment;
 
-    @ManyToOne
-    @JoinColumn(name = "upgrade_id")
-    private Upgrade upgrade;
+    @Column(name = "month")
+    private String month;
+
+    @OneToOne(mappedBy = "sentiment")
+    private Review review;
+
+
+//    미안하다 이것도 지웠다 카톡 확인했지?
+//    @ManyToOne
+//    @JoinColumn(name = "upgrade_id")
+//    private Upgrade upgrade;
 }
