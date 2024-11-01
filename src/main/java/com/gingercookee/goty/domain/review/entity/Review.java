@@ -1,7 +1,6 @@
 package com.gingercookee.goty.domain.review.entity;
 
 import com.gingercookee.goty.domain.app.entity.App;
-import com.gingercookee.goty.domain.sentiment.entity.Sentiment;
 import com.gingercookee.goty.domain.topic.entity.Topic;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -36,13 +35,15 @@ public class Review {
     @Column(name = "thumbs")
     private Integer thumbs;
 
+    @Column(name = "sentiment")
+    private Integer sentiment;
+
+    @Column(name = "emotion")
+    private String emotion;
+
     @ManyToOne
     @JoinColumn(name = "app_id")
     private App app;
-
-    @OneToOne
-    @JoinColumn(name = "sentiment_id")
-    private Sentiment sentiment;
 
     @ManyToOne
     @JoinColumn(name = "topic_id")

@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.boot.Metadata;
-import lombok.Builder;
-
 import java.util.Date;
 
 @Getter
@@ -38,7 +36,7 @@ public class MetadataResponseDto {
                 .build();
 
     }
-    public static MetadataResponseDto fromApp(App app) {
+    public static MetadataResponseDto fromEntity(App app) {
         return MetadataResponseDto.builder()
                 .name(app.getName())
                 .publisher(app.getPublisher())

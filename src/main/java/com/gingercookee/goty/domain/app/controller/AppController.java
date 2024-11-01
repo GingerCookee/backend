@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController {
     private final AppService appService;
 
-    @GetMapping("/meta/{appId}")
+    @GetMapping("/{appId}/meta")
     public ResponseEntity<MetadataResponseDto> signupUser(@PathVariable("appId") Long appId) {
         return ResponseEntity.ok(appService.getMetadata(appId));
 
