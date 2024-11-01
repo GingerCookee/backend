@@ -16,7 +16,7 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @GetMapping("{appId}//topicReview/{month}/{topicId}")
+    @GetMapping("{appId}/topicReview/{month}/{topicId}")
     public ResponseEntity<List<TopicReviewResponseDto>> getTopicReview(@PathVariable Long appId,
                                                                        @PathVariable String month,
                                                                        @PathVariable Long topicId,
