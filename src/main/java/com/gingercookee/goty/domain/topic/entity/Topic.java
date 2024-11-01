@@ -32,6 +32,9 @@ public class Topic {
     @Column(name = "month")
     private String month;
 
+    @Column(name = "representation_word")
+    private String representationWord;
+
     @OneToMany(mappedBy = "topic")
     private List<Review> review = new ArrayList<>();
 

@@ -26,7 +26,7 @@ public class AppService {
             if (categoryApp.isPresent()) {
                 return MetadataResponseDto.fromEntities(app.get(), categoryApp.get().getCategory());
             } else {
-                return MetadataResponseDto.fromApp(app.get());
+                return MetadataResponseDto.fromEntity(app.get());
             }
         } else {
             return MetadataResponseDto.builder()
