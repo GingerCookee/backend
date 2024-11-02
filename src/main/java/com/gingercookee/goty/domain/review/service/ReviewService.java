@@ -31,21 +31,19 @@ public class ReviewService {
         return reviews.map(TopicReviewResponseDto::new).getContent();
     }
 
-    public List<SentimentScoreResponseDto> getSentimentScore(Long appId, YearMonth yearMonth) {
+    public Page<SentimentScoreResponseDto> getSentimentScore(Long appId, YearMonth yearMonth, Pageable pageable) {
         Date startDate = Date.from(yearMonth.atDay(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date endDate = Date.from(yearMonth.atEndOfMonth().atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        List<Review> reviews = reviewRepository.findByAppIdAndDateBetween(appId, startDate, endDate);
+        Page<Review> reviews = reviewRepository.findByAppIdAndDateBetween(appId, startDate, endDate, pageable);
 
-        return reviews.stream()
-                .map(review -> new SentimentScoreResponseDto(
-                        review.getReviewId(),
-                        review.getUserName(),
-                        review.getDate(),
-                        review.getContent(),
-                        review.getSentiment()
-                ))
-                .collect(Collectors.toList());
+        return reviews.map(review -> new SentimentScoreResponseDto(
+                review.getReviewId(),
+                review.getUserName(),
+                review.getDate(),
+                review.getContent(),
+                review.getSentiment()
+        ));
     }
 
     public SentimentCountDto getSentimentCountByAppIdAndYearMonth(Long appId, YearMonth yearMonth) {
@@ -75,5 +73,36 @@ public class ReviewService {
         int month = yearMonth.getMonthValue();
 
         return reviewRepository.findEmotionCountsByAppIdAndMonth(appId, year, month);
+    }
+
+    public List<ReviewDto> getReviewsByAppIdAndEmotion(Long appId, int emotion) {
+        List<Object[]> results = reviewRepository.findReviewsByAppIdAndEmotion(appId, emotion);
+        return results.stream()
+                .map(row -> new ReviewDto((Date) row[0], (String) row[1]))
+                .collect(Collectors.toList());
+    }
+
+    public List<ReviewDto> getReviewsBySentiment(Long appId, int num) {
+        int sentiment = mapSentiment(num);
+        List<Object[]> results = reviewRepository.findReviewsByAppIdAndSentiment(appId, sentiment);
+        return results.stream()
+                .map(row -> new ReviewDto((Date) row[0], (String) row[1]))
+                .collect(Collectors.toList());
+    }
+
+    private int mapSentiment(int num) {
+        switch (num) {
+            case 0: return -1; // 부정
+            case 1: return 0;  // 중립
+            case 2: return 1;  // 긍정
+            default: throw new IllegalArgumentException("Invalid sentiment number: " + num);
+        }
+    }
+
+    public List<RatingDto> getMonthlyAverageRating(Long appId) {
+        List<Object[]> results = reviewRepository.findMonthlyAverageRatingByAppId(appId);
+        return results.stream()
+                .map(row -> new RatingDto((String) row[0], (Double) row[1]))
+                .collect(Collectors.toList());
     }
 }

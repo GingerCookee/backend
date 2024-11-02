@@ -1,8 +1,5 @@
 package com.gingercookee.goty.domain.review.repository;
-import com.gingercookee.goty.domain.Review.dto.EmotionCountProjection;
-import com.gingercookee.goty.domain.Review.dto.MonthlySentimentProjection;
-import com.gingercookee.goty.domain.Review.dto.SentimentCountProjection;
-import com.gingercookee.goty.domain.Review.dto.WeeklySentimentProjection;
+import com.gingercookee.goty.domain.Review.dto.*;
 import com.gingercookee.goty.domain.topic.entity.Topic;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,14 +29,11 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
             @Param("month") int month
     );
 
-    @Query("SELECT r FROM Review r WHERE r.app.appId = :appId AND FUNCTION('YEAR', r.date) = :year AND FUNCTION('MONTH', r.date) = :month")
-    List<Review> findByAppIdAndYearMonth(@Param("appId") Long appId, @Param("year") int year, @Param("month") int month);
-
     @Query("SELECT r FROM Review r WHERE r.app.appId = :appId AND r.date BETWEEN :startDate AND :endDate")
-    List<Review> findByAppIdAndDateBetween(@Param("appId") Long appId,
+    Page<Review> findByAppIdAndDateBetween(@Param("appId") Long appId,
                                            @Param("startDate") Date startDate,
-                                           @Param("endDate") Date endDate);
-
+                                           @Param("endDate") Date endDate,
+                                           Pageable pageable);
     @Query("SELECT " +
             "SUM(CASE WHEN r.sentiment = -1 THEN 1 ELSE 0 END) as negativeCount, " +
             "SUM(CASE WHEN r.sentiment = 0 THEN 1 ELSE 0 END) as neutralCount, " +
@@ -82,4 +76,26 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
                                                                   @Param("year") int year,
                                                                   @Param("month") int month);
 
+    @Query("SELECT r.date, r.content " +
+            "FROM Review r " +
+            "WHERE r.app.appId = :appId AND r.emotion = :emotion " +
+            "ORDER BY r.date")
+    List<Object[]> findReviewsByAppIdAndEmotion(@Param("appId") Long appId,
+                                                @Param("emotion") int emotion);
+
+//    List<Review> findByApp_IdAndEmotion(Long appId, String emotion);
+
+    @Query("SELECT r.date, r.content " +
+            "FROM Review r " +
+            "WHERE r.app.appId = :appId AND r.sentiment = :sentiment " +
+            "ORDER BY r.date")
+    List<Object[]> findReviewsByAppIdAndSentiment(@Param("appId") Long appId,
+                                                  @Param("sentiment") int sentiment);
+
+    @Query("SELECT FUNCTION('DATE_FORMAT', r.date, '%Y-%m') as month, AVG(r.rating) as avgRating " +
+            "FROM Review r " +
+            "WHERE r.app.appId = :appId " +
+            "GROUP BY month " +
+            "ORDER BY month")
+    List<Object[]> findMonthlyAverageRatingByAppId(@Param("appId") Long appId);
 }
