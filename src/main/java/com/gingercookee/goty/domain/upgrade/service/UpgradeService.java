@@ -1,8 +1,6 @@
 package com.gingercookee.goty.domain.upgrade.service;
 
-import com.gingercookee.goty.domain.app.dto.MetadataResponseDto;
-import com.gingercookee.goty.domain.app.entity.App;
-import com.gingercookee.goty.domain.category_app.entity.CategoryApp;
+import com.gingercookee.goty.domain.App.entity.App;
 import com.gingercookee.goty.domain.upgrade.dto.UpgradeResponseDto;
 import com.gingercookee.goty.domain.upgrade.entity.Upgrade;
 import com.gingercookee.goty.domain.upgrade.repository.UpgradeRepository;
