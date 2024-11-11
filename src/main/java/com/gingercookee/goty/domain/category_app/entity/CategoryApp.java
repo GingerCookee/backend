@@ -1,7 +1,7 @@
 package com.gingercookee.goty.domain.category_app.entity;
 
-import com.gingercookee.goty.domain.app.entity.App;
-import com.gingercookee.goty.domain.category.entity.Category;
+import com.gingercookee.goty.domain.App.entity.App;
+import com.gingercookee.goty.domain.Category.entity.Category;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

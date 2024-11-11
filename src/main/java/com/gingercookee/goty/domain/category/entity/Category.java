@@ -1,4 +1,4 @@
-package com.gingercookee.goty.domain.category.entity;
+package com.gingercookee.goty.domain.Category.entity;
 
 import com.gingercookee.goty.domain.category_app.entity.CategoryApp;
 import jakarta.persistence.*;

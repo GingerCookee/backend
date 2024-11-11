@@ -1,6 +1,6 @@
-package com.gingercookee.goty.domain.category.repository;
+package com.gingercookee.goty.domain.Category.repository;
 
-import com.gingercookee.goty.domain.category.entity.Category;
+import com.gingercookee.goty.domain.Category.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
