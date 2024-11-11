@@ -33,7 +33,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
-    private List<Bookmark> bookmarkList = new ArrayList<>();
+    private final List<Bookmark> bookmarkList = new ArrayList<>();
 
     @OneToOne(mappedBy = "user")
     private Admin admin;
