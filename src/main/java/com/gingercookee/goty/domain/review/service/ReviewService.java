@@ -1,11 +1,11 @@
-package com.gingercookee.goty.domain.review.service;
+package com.gingercookee.goty.domain.Review.service;
 import com.gingercookee.goty.domain.Review.dto.*;
+import com.gingercookee.goty.domain.Review.entity.Review;
+import com.gingercookee.goty.domain.Review.repository.ReviewRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import com.gingercookee.goty.domain.review.dto.TopicReviewResponseDto;
-import com.gingercookee.goty.domain.review.entity.Review;
-import com.gingercookee.goty.domain.review.repository.ReviewRepository;
+import com.gingercookee.goty.domain.Review.dto.TopicReviewResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

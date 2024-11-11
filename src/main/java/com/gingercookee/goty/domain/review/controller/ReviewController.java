@@ -1,11 +1,12 @@
 package com.gingercookee.goty.domain.Review.controller;
 
 import com.gingercookee.goty.domain.Review.dto.*;
-import com.gingercookee.goty.domain.review.dto.TopicReviewResponseDto;
-import com.gingercookee.goty.domain.review.service.ReviewService;
+import com.gingercookee.goty.domain.Review.dto.TopicReviewResponseDto;
+import com.gingercookee.goty.domain.Review.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,15 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 public class ReviewController {
+
+    @PutMapping("/put/url")
+    public ResponseEntity<String> handlePutRequest(@RequestBody String requestBody) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Access-Control-Allow-Origin", "http://localhost:5174");
+
+        // 추가로 설정할 응답 헤더가 있다면 headers 객체에 추가 가능
+        return ResponseEntity.ok().headers(headers).body("Your response message");
+    }
 
     private final ReviewService reviewService;
 

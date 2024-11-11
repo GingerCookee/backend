@@ -1,9 +1,9 @@
-package com.gingercookee.goty.domain.review.repository;
+package com.gingercookee.goty.domain.Review.repository;
 import com.gingercookee.goty.domain.Review.dto.*;
+import com.gingercookee.goty.domain.Review.entity.Review;
 import com.gingercookee.goty.domain.topic.entity.Topic;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.gingercookee.goty.domain.review.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
