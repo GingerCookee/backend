@@ -1,6 +1,6 @@
 package com.gingercookee.goty.domain.bookmark.entity;
 
-import com.gingercookee.goty.domain.app.entity.App;
+import com.gingercookee.goty.domain.App.entity.App;
 import com.gingercookee.goty.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
