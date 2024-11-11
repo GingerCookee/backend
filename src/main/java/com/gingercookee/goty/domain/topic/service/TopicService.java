@@ -2,7 +2,6 @@ package com.gingercookee.goty.domain.topic.service;
 import com.gingercookee.goty.domain.Review.repository.ReviewRepository;
 import com.gingercookee.goty.domain.topic.dto.TopicResponseDto;
 import com.gingercookee.goty.domain.topic.entity.Topic;
-import com.gingercookee.goty.domain.topic.repository.TopicRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,6 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class TopicService {
-    private final TopicRepository topicRepository;
     private final ReviewRepository reviewRepository;
 
     public List<TopicResponseDto> getTopicResult(Long appId, String sentiment, String month) {
