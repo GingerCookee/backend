@@ -1,6 +1,6 @@
 package com.gingercookee.goty.domain.topic.entity;
 
-import com.gingercookee.goty.domain.review.entity.Review;
+import com.gingercookee.goty.domain.Review.entity.Review;
 import com.gingercookee.goty.domain.upgrade.entity.Upgrade;
 import jakarta.persistence.*;
 import lombok.Getter;

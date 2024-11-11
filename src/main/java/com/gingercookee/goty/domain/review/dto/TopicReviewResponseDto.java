@@ -1,6 +1,6 @@
-package com.gingercookee.goty.domain.review.dto;
+package com.gingercookee.goty.domain.Review.dto;
 
-import com.gingercookee.goty.domain.review.entity.Review;
+import com.gingercookee.goty.domain.Review.entity.Review;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
