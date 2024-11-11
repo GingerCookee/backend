@@ -1,9 +1,7 @@
-package com.gingercookee.goty.domain.app.controller;
+package com.gingercookee.goty.domain.App.controller;
 
-import com.gingercookee.goty.domain.app.dto.MetadataResponseDto;
-import com.gingercookee.goty.domain.app.service.AppService;
-import com.gingercookee.goty.domain.user.dto.UserSignupRequestDto;
-import com.gingercookee.goty.domain.user.dto.UserSignupResponseDto;
+import com.gingercookee.goty.domain.App.dto.MetadataResponseDto;
+import com.gingercookee.goty.domain.App.service.AppService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

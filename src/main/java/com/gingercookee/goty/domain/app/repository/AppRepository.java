@@ -1,6 +1,6 @@
-package com.gingercookee.goty.domain.app.repository;
+package com.gingercookee.goty.domain.App.repository;
 
-import com.gingercookee.goty.domain.app.entity.App;
+import com.gingercookee.goty.domain.App.entity.App;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

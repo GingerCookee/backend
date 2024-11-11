@@ -1,6 +1,6 @@
-package com.gingercookee.goty.domain.app.dto;
-import com.gingercookee.goty.domain.app.entity.App;
-import com.gingercookee.goty.domain.category.entity.Category;
+package com.gingercookee.goty.domain.App.dto;
+import com.gingercookee.goty.domain.App.entity.App;
+import com.gingercookee.goty.domain.Category.entity.Category;
 import com.gingercookee.goty.domain.category_app.entity.CategoryApp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

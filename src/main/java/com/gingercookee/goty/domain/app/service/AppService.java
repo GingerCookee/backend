@@ -1,8 +1,8 @@
-package com.gingercookee.goty.domain.app.service;
+package com.gingercookee.goty.domain.App.service;
 
-import com.gingercookee.goty.domain.app.dto.MetadataResponseDto;
-import com.gingercookee.goty.domain.app.entity.App;
-import com.gingercookee.goty.domain.app.repository.AppRepository;
+import com.gingercookee.goty.domain.App.dto.MetadataResponseDto;
+import com.gingercookee.goty.domain.App.entity.App;
+import com.gingercookee.goty.domain.App.repository.AppRepository;
 import com.gingercookee.goty.domain.category_app.entity.CategoryApp;
 import com.gingercookee.goty.domain.category_app.repository.CategoryAppRepository;
 import lombok.RequiredArgsConstructor;
